@@ -57,14 +57,14 @@ class SalaTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"99999999"})
+    @ValueSource(strings = {"1699999999"})
     @DisplayName("Teste get/set de telefone")
     @Order(5)
     void getTelefone_sala(String tel) {
         s.setTelefone_sala(tel);
-        assertEquals("99999999", s.getTelefone_sala());
-        s.setTelefone_sala("99998888");
-        assertEquals("33115590", s.getTelefone_sala());
+        assertEquals("(16)9999-9999", s.getTelefone_sala());
+        s.setTelefone_sala("1699998888");
+        assertEquals("(16)9999-8888", s.getTelefone_sala());
     }
 
     @ParameterizedTest
@@ -85,13 +85,13 @@ class SalaTest {
 
         ArrayList<Sala> salasPadrao = new ArrayList<>();
 
-        salasPadrao.add(new Sala(1,30,"Sala 1","3D","33115520",true));
-        salasPadrao.add(new Sala(2,15,"Sala 2","2D","33115590",true));
-        salasPadrao.add(new Sala(3,50,"Sala 3","2D","33115580", false));
-        salasPadrao.add(new Sala(4,60,"Sala 4","2D","33115570",true));
-        salasPadrao.add(new Sala(5,45,"Sala 5","3D","33115510", false));
-        salasPadrao.add(new Sala(6,42,"Sala 6","4D","33115530", true));
-        salasPadrao.add(new Sala(7,55,"Sala 7","2D","33115540", false));
+        salasPadrao.add(new Sala(1,30,"Sala 1","3D","1633115520",true));
+        salasPadrao.add(new Sala(2,15,"Sala 2","2D","1633115590",true));
+        salasPadrao.add(new Sala(3,50,"Sala 3","2D","1633115580", false));
+        salasPadrao.add(new Sala(4,60,"Sala 4","2D","1633115570",true));
+        salasPadrao.add(new Sala(5,45,"Sala 5","3D","1633115510", false));
+        salasPadrao.add(new Sala(6,42,"Sala 6","4D","1633115530", true));
+        salasPadrao.add(new Sala(7,55,"Sala 7","2D","1633115540", false));
 
         System.out.println(posicao);
         System.out.println(listaSalas.get(posicao).getNome());
@@ -112,7 +112,7 @@ class SalaTest {
     @Order(9)
     void buscarSala() {
         ArrayList<Sala> salas = new ArrayList<>();
-        Sala sala1 = new Sala(1,30,"Sala 1","3D","33115520",true);
+        Sala sala1 = new Sala(1,30,"Sala 1","3D","1633115520",true);
 
         salas = s.carregaSalas(salas);
         Sala sala2 = s.buscarSala(salas,1);
@@ -137,13 +137,13 @@ class SalaTest {
         listaSalas = s.carregaSalas(listaSalas);
         listaSalas = s.deletaSala(listaSalas, 3);
 
-        salasPadrao.add(new Sala(1,30,"Sala 1","3D","33115520",true));
-        salasPadrao.add(new Sala(2,15,"Sala 2","2D","33115590",true));
-        salasPadrao.add(new Sala(3,50,"Sala 3","2D","33115580", false));
-        salasPadrao.add(new Sala(4,60,"Sala 4","2D","33115570",true));
-        salasPadrao.add(new Sala(5,45,"Sala 5","3D","33115510", false));
-        salasPadrao.add(new Sala(6,42,"Sala 6","4D","33115530", true));
-        salasPadrao.add(new Sala(7,55,"Sala 7","2D","33115540", false));
+        salasPadrao.add(new Sala(1,30,"Sala 1","3D","1633115520",true));
+        salasPadrao.add(new Sala(2,15,"Sala 2","2D","1633115590",true));
+        //salasPadrao.add(new Sala(3,50,"Sala 3","2D","33115580", false));
+        salasPadrao.add(new Sala(4,60,"Sala 4","2D","1633115570",true));
+        salasPadrao.add(new Sala(5,45,"Sala 5","3D","1633115510", false));
+        salasPadrao.add(new Sala(6,42,"Sala 6","4D","1633115530", true));
+        salasPadrao.add(new Sala(7,55,"Sala 7","2D","1633115540", false));
 
         assertAll("Teste deletar salas",
                 () -> assertEquals(listaSalas.get(posicao).getCodigo(),salasPadrao.get(posicao).getCodigo()),
@@ -161,7 +161,7 @@ class SalaTest {
     void incluirSala() {
         ArrayList<Sala> salas = new ArrayList<>();
         ArrayList<Sala> salaPadrao = new ArrayList<>();
-        Sala s = new Sala(8,20,"Sala 8","3D","33765432",true);
+        Sala s = new Sala(8,20,"Sala 8","3D","1633765432",true);
 
         s.incluirSala(salas,s);
         salaPadrao.add(s);
@@ -174,18 +174,18 @@ class SalaTest {
     @Order(11)
     void alterarSala() {
         ArrayList<Sala> salaPadrao = new ArrayList<>();
-        Sala newSala= new Sala(8,100,"Sala oito","2D","999999999",false);
+        Sala newSala= new Sala(7,100,"Sala oito","2D","16999999999",false);
 
         listaSalas = s.carregaSalas(listaSalas);
         s.alterarSala(listaSalas,newSala);
 
         assertAll("Teste alterar sala",
-                () -> assertEquals(listaSalas.get(7).getCodigo(),newSala.getCodigo()),
-                () -> assertEquals(listaSalas.get(7).getCapacidade(),newSala.getCapacidade()),
-                () -> assertEquals(listaSalas.get(7).getNome(),newSala.getNome()),
-                () -> assertEquals(listaSalas.get(7).getTipo_de_exibicao(),newSala.getTipo_de_exibicao()),
-                () -> assertEquals(listaSalas.get(7).getTelefone_sala(),newSala.getTelefone_sala()),
-                () -> assertEquals(listaSalas.get(7).isAcessivel(),newSala.isAcessivel())
+                () -> assertEquals(listaSalas.get(6).getCodigo(),newSala.getCodigo()),
+                () -> assertEquals(listaSalas.get(6).getCapacidade(),newSala.getCapacidade()),
+                () -> assertEquals(listaSalas.get(6).getNome(),newSala.getNome()),
+                () -> assertEquals(listaSalas.get(6).getTipo_de_exibicao(),newSala.getTipo_de_exibicao()),
+                () -> assertEquals(listaSalas.get(6).getTelefone_sala(),newSala.getTelefone_sala()),
+                () -> assertEquals(listaSalas.get(6).isAcessivel(),newSala.isAcessivel())
         );
     }
 }

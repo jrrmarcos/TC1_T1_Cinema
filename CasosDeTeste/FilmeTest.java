@@ -98,9 +98,10 @@ class FilmeTest {
         filmesPadrao.add(new Filme(6,1994,"O Máskara","Chuck Russell","Jim Carrey"));
         filmesPadrao.add(new Filme(7,2019,"It – Capítulo Dois","Andy Muschietti","Bill Skarsgård"));
 
-        System.out.println(posicao);
-        System.out.println(listaFilmes.get(posicao).getNome());
-        System.out.println(filmesPadrao.get(posicao).getNome());
+        //TESTES DE DEBUG
+        //System.out.println(posicao);
+        //System.out.println(listaFilmes.get(posicao).getNome());
+        //System.out.println(filmesPadrao.get(posicao).getNome());
 
         assertAll("Teste carregar Filmes",
                 () -> assertEquals(listaFilmes.get(posicao).getCodigo(),filmesPadrao.get(posicao).getCodigo()),
@@ -142,8 +143,9 @@ class FilmeTest {
         listaFilmes = f.carregaFilmes(listaFilmes);
         f.deletaFilme(listaFilmes,2);
 
-        System.out.println(posicao);
-        System.out.println(listaFilmes.get(posicao).getNome());
+        //TESTES DE DEBUG
+        //System.out.println(posicao);
+        //System.out.println(listaFilmes.get(posicao).getNome());
 
         filmesPadrao.add(new Filme(1,1997,"Titanic","James Cameron","Leonardo DiCaprio"));
         //filmesPadrao.add(new Filme(2,2016,"Deadpool"," Tim Miller","Ryan Reynolds"));

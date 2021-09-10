@@ -53,6 +53,7 @@ public class Sala {
     public String getTelefone_sala() { return telefone_sala; }
 
     public void setTelefone_sala(String telefone_sala) {
+
         if(telefone_sala.length() == 10){
             telefone_sala = "(" + telefone_sala.substring(0,2) + ")" +
                     telefone_sala.substring(2,6) + "-" + telefone_sala.substring(6,10);
@@ -60,7 +61,8 @@ public class Sala {
             telefone_sala = "(" + telefone_sala.substring(0,2) + ")" +
                     telefone_sala.substring(2,7) + "-" + telefone_sala.substring(7,11);
         } else { telefone_sala = ""; }
-        this.telefone_sala = telefone_sala; }
+        this.telefone_sala = telefone_sala;
+    }
 
     public boolean isAcessivel() {
         return acessivel;
@@ -108,13 +110,13 @@ public class Sala {
     public ArrayList<Sala> carregaSalas(ArrayList<Sala> salas){
         Sala sala = new Sala();
 
-        Sala s1 = new Sala(1,30,"Sala 1","3D","33115520",true);
-        Sala s2 = new Sala(2,15,"Sala 2","2D","33115590",true);
-        Sala s3 = new Sala(3,50,"Sala 3","2D","33115580", false);
-        Sala s4 = new Sala(4,60,"Sala 4","2D","33115570",true);
-        Sala s5 = new Sala(5,45,"Sala 5","3D","33115510", false);
-        Sala s6 = new Sala(6,42,"Sala 6","4D","33115530", true);
-        Sala s7 = new Sala(7,55,"Sala 7","2D","33115540", false);
+        Sala s1 = new Sala(1,30,"Sala 1","3D","1633115520",true);
+        Sala s2 = new Sala(2,15,"Sala 2","2D","1633115590",true);
+        Sala s3 = new Sala(3,50,"Sala 3","2D","1633115580", false);
+        Sala s4 = new Sala(4,60,"Sala 4","2D","1633115570",true);
+        Sala s5 = new Sala(5,45,"Sala 5","3D","1633115510", false);
+        Sala s6 = new Sala(6,42,"Sala 6","4D","1633115530", true);
+        Sala s7 = new Sala(7,55,"Sala 7","2D","1633115540", false);
 
         salas = sala.incluirSala(salas,s1);
         salas = sala.incluirSala(salas,s2);
